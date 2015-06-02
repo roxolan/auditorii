@@ -7,6 +7,7 @@
 <body ng-controller="roomCtrl">
 <h3 ng-bind-html="appTitle"></h3>
 
+<div ng-show="rooms.length > 0">
 <table>
   <thead>
   <tr>
@@ -29,6 +30,10 @@
   </tr>
   </tbody>
 </table>
+</div>
+<div ng-hide="rooms.length > 0">
+  The list of classrooms is empty
+</div>
 <hr/>
 
 <form>
