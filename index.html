@@ -10,20 +10,48 @@
 <table>
   <thead>
   <tr>
+    <th></th>
     <th>Number</th>
+    <th>Title</th>
+    <th>Start Time</th>
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="room in rooms">
+  <tr
+      ng-class="{selected: room.selected}"
+      ng-repeat="room in rooms">
+    <td><input type="checkbox" ng-model="room.selected"/></td>
     <td>{{room.number}}</td>
+    <td>{{room.title}}</td>
+    <td>{{room.startTime}}</td>
   </tr>
   </tbody>
 </table>
 <hr/>
-<label for="room_number">Room number:</label>
-<input type="text" id="room_number" ng-model="room.number"/>
 
-<button ng-click="reserve(room)">Reserve</button>
+<form>
+  <p><label for="room_number">Room number:</label>
+    <input
+        type="text"
+        id="room_number"
+        ng-model="room.number"
+        placeholder="Room #"
+        /></p>
+
+  <p><label for="room_title">Room title:</label>
+    <input
+        type="text"
+        id="room_title"
+        ng-model="room.title"
+        placeholder="Room Title"
+        /></p>
+</form>
+
+<button
+    ng-click="reserve(room)"
+    ng-disabled="!room.number">
+  Reserve
+</button>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
