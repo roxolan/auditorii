@@ -4,7 +4,26 @@
   <meta charset="UTF-8">
   <title>Classroom Management Page</title>
 </head>
-<body>
+<body ng-controller="roomCtrl">
+<h3>Classrooms Reservation</h3>
+
+<table>
+  <thead>
+  <tr>
+    <th>Number</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="room in rooms">
+    <td>{{room.number}}</td>
+  </tr>
+  </tbody>
+</table>
+<hr/>
+<label for="room_number">Room number:</label>
+<input type="text" id="room_number" ng-model="room.number"/>
+
+<button ng-click="reserve(room)">Reserve</button>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="app/app.js"></script>
