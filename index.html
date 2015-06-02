@@ -13,6 +13,7 @@
     <th></th>
     <th>Number</th>
     <th>Title</th>
+    <th>Curator</th>
     <th>Start Time</th>
   </tr>
   </thead>
@@ -21,35 +22,51 @@
       ng-class="{selected: room.selected}"
       ng-repeat="room in rooms">
     <td><input type="checkbox" ng-model="room.selected"/></td>
-    <td>{{room.number}}</td>
-    <td>{{room.title}}</td>
-    <td>{{room.startTime}}</td>
+    <td><span ng-bind="room.number"></span></td>
+    <td><span ng-bind="room.title"></span></td>
+    <td><span ng-bind="room.curator"></span></td>
+    <td><span ng-bind="room.startTime"></span></td>
   </tr>
   </tbody>
 </table>
 <hr/>
 
 <form>
-  <p><label for="room_number">Room number:</label>
+  <p>
+    <label for="room_number">Room number:</label>
     <input
         type="text"
         id="room_number"
         ng-model="room.number"
         placeholder="Room #"
-        /></p>
+        />
+  </p>
 
-  <p><label for="room_title">Room title:</label>
+  <p>
+    <label for="room_curator">Room curator:</label>
+    <select
+        ng-model="room.curator"
+        id="room_curator"
+        ng-options="curator for curator in curators"
+        >
+      Select curator
+    </select>
+  </p>
+
+  <p>
+    <label for="room_title">Room title:</label>
     <input
         type="text"
         id="room_title"
         ng-model="room.title"
         placeholder="Room Title"
-        /></p>
+        />
+  </p>
 </form>
 
 <button
     ng-click="reserve(room)"
-    ng-disabled="!room.number">
+    ng-disabled="!room.number || !room.curator">
   Reserve
 </button>
 
