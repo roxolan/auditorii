@@ -3,7 +3,8 @@ auditorii.directive("alert", function () {
     restrict: 'E',
     scope: {
       topic: '=topic',
-      description: '=description'
+      description: '=description',
+      close: '&'
     },
     templateUrl: "templates/alert.html",
     replace: true

@@ -76,8 +76,10 @@
 </button>
 
 <alert
+    ng-show="showAlert"
     topic="alertTopic"
-    description="alertMessage">
+    description="alertMessage"
+    close="closeAlert()">
 </alert>
 
 <script src="bower_components/angular/angular.js"></script>
