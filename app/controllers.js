@@ -1,5 +1,7 @@
 auditorii.controller('roomCtrl', function ($scope) {
   $scope.appTitle = "<b>Classrooms Reservation</b>";
+  $scope.alertTopic = "There is an issue!";
+  $scope.alertMessage = "You should provide info about the room and its curator!";
 
   // List of rooms
   $scope.rooms = [
