@@ -1,4 +1,5 @@
-auditorii.directive("alert", function () {
+auditorii
+  .directive("alert", function () {
   return {
     restrict: 'E',
     scope: {
@@ -9,4 +10,24 @@ auditorii.directive("alert", function () {
     templateUrl: "templates/alert.html",
     replace: true
   };
-});
+  })
+  .directive("accordion", function () {
+ 
+  })
+  .directive("accordionItem", function () {
+    return {
+      restrict: 'E',
+      scope: {
+        title: "@"
+      },
+      transclude: true,
+      templateUrl: "templates/accordionItem.html",
+      link: function (scope, element, attrs, ctrl, transcludeFn) {
+        element.bind("click", function () {
+          scope.$apply(function () {
+            scope.active = !scope.active;
+          });
+        });
+      }
+    }
+  })
