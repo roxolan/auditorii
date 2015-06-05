@@ -8,12 +8,15 @@ auditorii
       close: '&'
     },
     templateUrl: "templates/alert.html",
-    replace: true
+    replace: true,
+    transclude: true
   };
   })
+  /*
   .directive("accordion", function () {
- 
+
   })
+   */
   .directive("accordionItem", function () {
     return {
       restrict: 'E',
