@@ -1,4 +1,5 @@
 var auditorii = angular.module('auditorii', [
-  'ngSanitize'
+  'ngSanitize',
+  'ngAnimate'
 ]);
 
