@@ -24,10 +24,10 @@
       ng-class="{selected: room.selected}"
       ng-repeat="room in rooms">
     <td><input type="checkbox" ng-model="room.selected"/></td>
-    <td><span ng-bind="room.number"></span></td>
-    <td><span ng-bind="room.title"></span></td>
-    <td><span ng-bind="room.curator"></span></td>
-    <td><span ng-bind="room.startTime"></span></td>
+    <td>{{room.number}}</td>
+    <td>{{room.title}}</td>
+    <td>{{room.curator}}</td>
+    <td>{{room.startTime | date }}</td>
   </tr>
   </tbody>
 </table>
