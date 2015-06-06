@@ -9,25 +9,42 @@
 <h3 ng-bind-html="appTitle"></h3>
 
 <div ng-show="rooms.length > 0">
-  <input
-      type="text"
-      ng-model="criteria"
-      placeholder="Filter by classroom number">
-
+  <p>
+    <input
+        type="text"
+        ng-model="criteria"
+        placeholder="Filter by classroom number">
+  </p>
   <table>
   <thead>
   <tr>
     <th></th>
-    <th>Number</th>
-    <th>Title</th>
-    <th>Curator</th>
-    <th>Start Time</th>
+    <th>
+      <a href="" ng-click="field ='number'; order=!order">
+        Number
+      </a>
+    </th>
+    <th>
+      <a href="" ng-click="field ='title'; order=!order">
+        Title
+      </a>
+    </th>
+    <th>
+      <a href="" ng-click="field ='curator'; order=!order">
+        Curator
+      </a>
+    </th>
+    <th>
+      <a href="" ng-click="field ='startTime'; order=!order">
+        Start Time
+      </a>
+    </th>
   </tr>
   </thead>
   <tbody>
   <tr
       ng-class="{selected: room.selected}"
-      ng-repeat="room in rooms | filter:criteria">
+      ng-repeat="room in rooms | filter:criteria | orderBy:field:order">
     <td><input type="checkbox" ng-model="room.selected"/></td>
     <td>{{room.number}}</td>
     <td>{{room.title}}</td>
