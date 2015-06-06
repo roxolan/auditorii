@@ -9,7 +9,12 @@
 <h3 ng-bind-html="appTitle"></h3>
 
 <div ng-show="rooms.length > 0">
-<table>
+  <input
+      type="text"
+      ng-model="criteria"
+      placeholder="Filter by classroom number">
+
+  <table>
   <thead>
   <tr>
     <th></th>
@@ -22,7 +27,7 @@
   <tbody>
   <tr
       ng-class="{selected: room.selected}"
-      ng-repeat="room in rooms">
+      ng-repeat="room in rooms | filter:criteria">
     <td><input type="checkbox" ng-model="room.selected"/></td>
     <td>{{room.number}}</td>
     <td>{{room.title}}</td>
