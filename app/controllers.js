@@ -1,5 +1,5 @@
-auditorii.controller('roomCtrl', function ($scope) {
-  $scope.appTitle = "<b>Classrooms Reservation</b>";
+auditorii.controller('roomCtrl', function ($scope, $filter) {
+  $scope.appTitle = $filter("uppercase")("<b>Classrooms Reservation</b>");
   $scope.showAlert = true;
   $scope.alertTopic = "There is an issue!";
   $scope.alertMessage = "You should provide info about the room and its curator!";
