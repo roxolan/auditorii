@@ -3,9 +3,7 @@ auditorii
     return {
       restrict: 'E',
       scope: {
-        topic: '=topic',
-        description: '=description',
-        close: '&'
+        topic: '@'
       },
       templateUrl: "templates/alert.html",
       replace: true,

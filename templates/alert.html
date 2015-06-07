@@ -1,9 +1,7 @@
 <div class="alert">
   <span class="alert-topic">
-    <span ng-bind="topic"></span>
+    {{topic}}
   </span>
-  <span class="alert-description">
-    <span ng-bind="description"></span>
+  <span class="alert-description" ng-transclude>
   </span>
-  <a href="" ng-click="close()">Close</a>
 </div>

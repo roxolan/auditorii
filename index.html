@@ -95,21 +95,41 @@
         placeholder="Room Title"
         />
   </p>
+  <button
+      ng-click="reserve(room)"
+      ng-disabled="roomForm.$invalid">
+    Reserve
+  </button>
 </form>
 
-<button
-    ng-click="reserve(room)"
-    ng-disabled="roomForm.$invalid">
-  Reserve
-</button>
+<alert
+    ng-show="roomForm.roomNumberField.$dirty && roomForm.roomNumberField.$invalid"
+    topic="Something went wrong with the room number!"
+    >
+  <span ng-show="roomForm.roomNumberField.$error.required">
+    You must provide the number of the room!
+  </span>
+</alert>
 
+<alert
+    ng-show="roomForm.roomCuratorField.$dirty && roomForm.roomCuratorField.$invalid"
+    topic="Something went wrong with the room curator name!"
+    >
+  <span ng-show="roomForm.roomCuratorField.$error.required">
+    You must provide the name of the room curator!
+  </span>
+</alert>
+
+<!--
 <alert
     ng-show="showAlert"
     topic="alertTopic"
     description="alertMessage"
     close="closeAlert()">
 </alert>
+-->
 
+<!--
 <accordion>
   <accordion-item title="432B">
     Mary Johnson
@@ -121,7 +141,7 @@
     Mary Johnson
   </accordion-item>
 </accordion>
-
+-->
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
