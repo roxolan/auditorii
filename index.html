@@ -46,7 +46,7 @@
       ng-class="{selected: room.selected}"
       ng-repeat="room in rooms | filter:criteria | orderBy:field:order">
     <td><input type="checkbox" ng-model="room.selected"/></td>
-    <td>{{room.number}}</td>
+    <td>{{room.number | classroom: '-' }}</td>
     <td>{{room.title}}</td>
     <td>{{room.curator}}</td>
     <td>{{room.startTime | date }}</td>
@@ -124,5 +124,6 @@
 <script src="app/app.js"></script>
 <script src="app/controllers.js"></script>
 <script src="app/directives.js"></script>
+<script src="app/filters.js"></script>
 </body>
 </html>
