@@ -59,14 +59,16 @@
 </div>
 <hr/>
 
-<form>
+<form name="roomForm">
   <p>
     <label for="room_number">Room number:</label>
     <input
         type="text"
         id="room_number"
+        name="roomNumberField"
         ng-model="room.number"
         placeholder="Room #"
+        ng-required="true"
         />
   </p>
 
@@ -75,7 +77,9 @@
     <select
         ng-model="room.curator"
         id="room_curator"
+        name="roomCuratorField"
         ng-options="curator for curator in curators"
+        ng-required="true"
         >
       Select curator
     </select>
@@ -86,6 +90,7 @@
     <input
         type="text"
         id="room_title"
+        name="roomTitleField"
         ng-model="room.title"
         placeholder="Room Title"
         />
@@ -94,7 +99,7 @@
 
 <button
     ng-click="reserve(room)"
-    ng-disabled="!room.number || !room.curator">
+    ng-disabled="roomForm.$invalid">
   Reserve
 </button>
 
